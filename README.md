@@ -92,3 +92,16 @@ Create a new issue in the repo and we will get back to you very quickly.
     docker-compose up
 
 > The [app](http://localhost:8080/health) should has been started.
+
+## How to ship to production
+> compile typescript code into dist
+
+    yarn build
+
+> build the docker image with the compiled code in dist via production.Dockerfile
+    
+    docker build -t hacker-news -f production.Dockerfile .
+
+> test the image locally
+
+    docker run --rm -p 8080:8080 hacker-news   
