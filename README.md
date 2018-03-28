@@ -105,3 +105,13 @@ Create a new issue in the repo and we will get back to you very quickly.
 > test the image locally
 
     docker run --rm -p 8080:8080 hacker-news   
+
+## How to run tests
+
+> run the tests
+
+    yarn test
+
+> generate coverage report
+
+    yarn test --coverage       
