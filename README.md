@@ -81,6 +81,7 @@ Create a new issue in the repo and we will get back to you very quickly.
 
 ## How to start this project in local
 > First, you need to have node, yarn & docker installed on you machine. A VPN is nice to have. To verify it, try following commands in your terminal. If you do not have it, just Google it.
+
     node --version
     yarn --version
     docker --version
