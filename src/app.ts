@@ -8,7 +8,7 @@ mountHealth(app);
 
 app.get("/messages", async (req, res) => {
   await setup();
-  const data = await db.doc.scan({ TableName: tables.messages }).promise();
+  const data = await db.doc.scan({ TableName: tables.articles }).promise();
   res.status(200).json({
     message: data,
   });
