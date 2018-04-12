@@ -1,17 +1,19 @@
+import * as bodyPaser from "body-parser";
 import * as express from "express";
 
-import { db, setup, tables } from "modules/db";
+import { setup as setupAuthenication } from "modules/authenication";
+import { setup as setupDB } from "modules/db";
 import { mount as mountHealth } from "modules/health";
+import { mount as mountMessage } from "modules/messages";
+import { mount as mountUsers } from "modules/users";
 
-const app = express();
-mountHealth(app);
-
-app.get("/messages", async (req, res) => {
-  await setup();
-  const data = await db.doc.scan({ TableName: tables.articles }).promise();
-  res.status(200).json({
-    message: data,
-  });
-});
-
-export { app };
+export const appSetup = async () => {
+  await setupDB();
+  const app = express();
+  app.use(bodyPaser.json());
+  mountHealth(app);
+  mountUsers(app);
+  setupAuthenication(app);
+  mountMessage(app);
+  return app;
+};

@@ -1,1 +1,1 @@
-export const prefix = "hacker-news";
+export const prefix = "ef-workshop-api";
